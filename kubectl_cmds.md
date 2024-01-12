@@ -150,6 +150,28 @@ kubectl run web --image=nginx --restart=Never -l app=web --env env1=value1 --ann
 
 </p>
 </details>
+<details><summary>Port forward to localhost</summary>
+<p>
+
+```bash
+kubectl port-forward pod/{pod-name} {host-port}:{service-port}
+```
+
+e.g
+
+
+```bash
+kubectl run web --image=nginx --restart=Never
+kubectl port-forward pod/web 8080:80
+```
+
+Curl to access the page
+```bash
+curl http://localhost:8080
+```
+
+</p>
+</details>
 
 ## Service
 <details><summary>List the Service</summary>
@@ -195,6 +217,7 @@ kubectl expose {{podname}} --port=80 --target-port=80 --type=NodePort
 e.g
 
 ```bash
+kubectl run web --image=nginx --restart=Never
 kubectl expose pod/web --port=80 --target-port=80 --type=NodePort
 ```
 
@@ -217,6 +240,7 @@ kubectl expose {{podname}} --port=80 --target-port=80 --type=ClusterIP
 e.g
 
 ```bash
+kubectl run web --image=nginx --restart=Never
 kubectl expose pod/web --port=80 --target-port=80 --type=ClusterIP
 ```
 
@@ -233,16 +257,17 @@ kubectl port-forward svc/{service-name} {host-port}:{service-port}
 
 e.g
 
-earlier step 
-- [pod-creation](#pod-creation)
 
 ```bash
+kubectl run web --image=nginx --restart=Never
+kubectl expose pod/web --port=80 --target-port=80 --type=ClusterIP
 kubectl port-forward svc/web 8080:80
 ```
 
 Curl to access the page
 ```bash
-curl http://localhost:8080```
+curl http://localhost:8080
+```
 
 </p>
 </details>
