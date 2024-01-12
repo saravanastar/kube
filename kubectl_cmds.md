@@ -172,6 +172,22 @@ curl http://localhost:8080
 
 </p>
 </details>
+<details><summary>Log the pod output</summary>
+<p>
+
+```bash
+kubectl logs {pod-name}
+```
+
+
+Follow the logs
+
+```bash
+kubectl logs -f {pod-name}
+```
+
+</p>
+</details>
 
 ## Service
 <details><summary>List the Service</summary>
@@ -269,6 +285,84 @@ Curl to access the page
 curl http://localhost:8080
 ```
 
+</p>
+</details>
+
+## Deployment
+
+<details><summary>List the deployment</summary>
+<p>
+
+```bash
+kubectl get deployments
+```
+</p>
+</details>
+
+<details><summary>Delete the deployment</summary>
+<p>
+
+```bash
+kubectl delete deployments/{deployment-name}
+```
+</p>
+</details>
+<details><summary>Create the deployment</summary>
+<p>
+
+```bash
+kubectl create deployment {deployment-name} --image={image} --port={port} --replicas={no.of-replicas}
+```
+
+e.g
+```bash
+kubectl create deployment webapp --image=nginx --port=80 --replicas=3
+```
+</p>
+</details>
+
+<details><summary>Edit the deployment</summary>
+<p>
+
+```bash
+kubectl edit deployment {deployment-name} 
+```
+
+e.g
+```bash
+kubectl edit deployment webapp
+```
+</p>
+</details>
+<details><summary>Describe the deployment</summary>
+<p>
+
+```bash
+kubectl describe deployment {deployment-name} 
+```
+
+e.g
+```bash
+kubectl describe deployment webapp
+```
+</p>
+</details>
+<details><summary>Logs the deployment</summary>
+<p>
+
+```bash
+kubectl logs deployment/{deployment-name} 
+```
+
+e.g
+```bash
+kubectl logs deployment/webapp
+```
+
+Follows the logs
+```bash
+kubectl logs -f deployment/webapp
+```
 </p>
 </details>
 
