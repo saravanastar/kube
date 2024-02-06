@@ -189,6 +189,22 @@ kubectl logs -f {pod-name}
 </p>
 </details>
 
+<details><summary>POD Probe History</summary>
+<p>
+
+probe history
+
+```bash
+kubectl get pods {pod-name} -o jsonpath='{.status.conditions}' | jq .
+```
+
+</p>
+</details>
+
+
+
+
+
 ## Service
 <details><summary>List the Service</summary>
 <p>
